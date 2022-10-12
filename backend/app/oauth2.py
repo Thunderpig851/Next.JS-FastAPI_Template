@@ -44,8 +44,8 @@ def require_user(Authorize: AuthJWT = Depends()):
         if not user:
             raise UserNotFound('User no longer exist')
 
-        # if not user["verified"]:
-        #     raise NotVerified('You are not verified')
+        if not user["verified"]:
+            raise NotVerified('You are not verified')
 
     except Exception as e:
         error = e.__class__.__name__

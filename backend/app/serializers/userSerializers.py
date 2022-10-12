@@ -1,4 +1,3 @@
-
 def userEntity(user) -> dict:
     return {
         "id": str(user["_id"]),
