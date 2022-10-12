@@ -7,7 +7,7 @@ class UserBaseSchema(BaseModel):
     name: str
     email: str
     photo: str
-    role: str
+    role: str | None = None
     created_at: datetime | None = None
     updated_at: datetime | None = None
 
@@ -30,6 +30,9 @@ class UserResponseSchema(UserBaseSchema):
 class UserResponse(BaseModel):
     status: str
     user: UserResponseSchema
+
+class ListUserResponse(BaseModel):
+    users: List[UserResponse]
 
 class FilteredUserResponse(UserBaseSchema):
     id: str
