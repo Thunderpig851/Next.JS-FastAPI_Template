@@ -4,6 +4,7 @@ class Settings(BaseSettings):
     DATABASE_URL: str
     MONGO_INIT_DATABASE: str
 
+    JWT_SECRET_KEY: str
     JWT_PUBLIC_KEY: str
     JWT_PRIVATE_KEY: str
     REFRESH_TOKEN_EXPIRES_IN: int
