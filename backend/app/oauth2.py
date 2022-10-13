@@ -47,7 +47,7 @@ def require_user(Authorize: AuthJWT = Depends()):
             raise NotVerified('You are not verified')
 
     except Exception as e:
-        error = e.__class__.__name__
+        error = e
         print(error)
         if error == 'MissingTokenError':
             raise HTTPException(
