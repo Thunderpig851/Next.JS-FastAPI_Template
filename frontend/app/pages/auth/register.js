@@ -11,19 +11,21 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Copyright from './copyright';
 
+import registerUser from '../api/authRoutes.js';
 
 const theme = createTheme();
 
 export default function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
+    let data = new FormData(event.currentTarget);
+    data = {
       name: data.get('firstName') + ' ' + data.get('lastName'),
       email: data.get('email'),
       password: data.get('password'),
       passwordConfirm: data.get('passwordConfirm'),
-    });
+    };
+    registerUser(data);
   };
 
   return (
