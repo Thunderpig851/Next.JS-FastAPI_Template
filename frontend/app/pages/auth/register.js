@@ -11,7 +11,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Copyright from './copyright';
 
-import registerUser from '../api/authRoutes.js';
+import { registerUser } from '../api/authRoutes.js';
 
 const theme = createTheme();
 
