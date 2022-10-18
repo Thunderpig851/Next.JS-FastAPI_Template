@@ -11,12 +11,14 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Copyright from './copyright';
+import Router, { useRouter } from 'next/router'
 
 import { loginUser } from '../api/authRoutes';
 
 const theme = createTheme();
 
 export default function Login() {
+  const router = useRouter();
   const handleSubmit = (event) => {
     event.preventDefault();
     let data = new FormData(event.currentTarget);
@@ -24,7 +26,13 @@ export default function Login() {
       email: data.get('email'),
       password: data.get('password'),
     });
-    loginUser(data);
+    // Navigate user to home page after successful login 
+    loginUser(data).then((res) => {
+      if (res) {
+        router.push('/main_page/home')
+      }
+    })
+
   };
 
   return (
