@@ -12,16 +12,19 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Copyright from './copyright';
 
+import { loginUser } from '../api/authRoutes';
+
 const theme = createTheme();
 
 export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
+    let data = new FormData(event.currentTarget);
+    data = ({
       email: data.get('email'),
       password: data.get('password'),
     });
+    loginUser(data);
   };
 
   return (

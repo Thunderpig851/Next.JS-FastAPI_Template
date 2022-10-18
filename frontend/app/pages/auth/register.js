@@ -10,12 +10,14 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Copyright from './copyright';
+import { useRouter } from 'next/router'
 
 import { registerUser } from '../api/authRoutes.js';
 
 const theme = createTheme();
 
 export default function Register() {
+  const router = useRouter();
   const handleSubmit = (event) => {
     event.preventDefault();
     let data = new FormData(event.currentTarget);
@@ -25,7 +27,11 @@ export default function Register() {
       password: data.get('password'),
       passwordConfirm: data.get('passwordConfirm'),
     };
-    registerUser(data);
+    registerUser(data).then((res) => {
+      if (res) {
+        router.push('/auth/login');
+      }
+    })
   };
 
   return (
