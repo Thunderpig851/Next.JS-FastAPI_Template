@@ -27,6 +27,7 @@ export default function Register() {
       password: data.get('password'),
       passwordConfirm: data.get('passwordConfirm'),
     };
+    // Navigate user to login after registration is successful
     registerUser(data).then((res) => {
       if (res) {
         router.push('/auth/login');
