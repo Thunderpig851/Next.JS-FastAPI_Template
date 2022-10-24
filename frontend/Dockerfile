@@ -1,9 +1,7 @@
-FROM node:16
-RUN mkdir -p /usr/src
-COPY . /usr/src
-RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y nodejs \
-    npm  
-RUN apt-get install npm -y
-CMD ['npm' 'run' 'dev']
+FROM node:16.17.1-bullseye
+WORKDIR /app
+COPY /app/package*.json .
+COPY /app .
+RUN npm install
 EXPOSE 3000
+CMD ["npm", "run", "dev"]

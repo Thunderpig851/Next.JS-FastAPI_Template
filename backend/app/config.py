@@ -2,7 +2,7 @@ from pydantic import BaseSettings
 
 class Settings(BaseSettings):
     DATABASE_URL: str
-    MONGO_INIT_DATABASE: str
+    MONGO_INITDB_DATABASE: str
 
     JWT_SECRET_KEY: str
     JWT_PUBLIC_KEY: str

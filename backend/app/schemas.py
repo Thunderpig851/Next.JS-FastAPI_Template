@@ -7,10 +7,10 @@ from bson.objectid import ObjectId
 class UserBaseSchema(BaseModel):
     name: str
     email: str
-    photo: str
-    role: str
-    created_at: datetime
-    updated_at: datetime
+    photo: str | None
+    role: str | None
+    created_at: datetime | None
+    updated_at: datetime | None
 
     class Config:
         orm_model = True
