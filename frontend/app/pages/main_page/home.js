@@ -1,7 +1,9 @@
+import Navbar from '../navigation/navbar'
+
 export default function MainPage() {
     return (
         <div>
-            Hello New User!
+            <Navbar />
         </div>
     )
 };
