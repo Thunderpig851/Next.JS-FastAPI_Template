@@ -20,7 +20,6 @@ app.add_middleware(
 
 app.include_router(auth.router, tags=['Auth'], prefix='/api/auth')
 app.include_router(user.router, tags=['Users'], prefix='/api/users')
-# app.include_router(post.router, tags=['Posts'], prefix='/api/posts')
 
 @app.get('/api/healthchecker')
 def root():
